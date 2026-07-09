@@ -2,13 +2,21 @@ import { site, contact, services } from "@config";
 
 export const organizationSchema = {
   "@context": "https://schema.org",
+  
   "@type": "Organization",
+
   name: site.companyName,
+
   url: site.url,
+
   logo: `${site.url}${site.logo}`,
+
   description: site.description,
+
   email: contact.email,
+
   telephone: contact.telephone,
+
   address: {
     "@type": "PostalAddress",
 
