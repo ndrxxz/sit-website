@@ -1,10 +1,10 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
-const Home = lazy(() => import("@/pages"));
-const Services = lazy(() => import("@/pages/Services"));
-const AboutUs = lazy(() => import("@/pages"));
-const NotFound = lazy(() => import("@/pages"))
+const Home = lazy(() => import("@/pages/Home"))
+const Services = lazy(() => import("@/pages/Services/Services"))
+const AboutUs = lazy(() => import("@/pages/AboutUs"))
+const NotFound = lazy(() => import("@/pages/NotFound"))
 
 function AppRoutes() {
   return (
