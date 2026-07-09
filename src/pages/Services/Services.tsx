@@ -1,13 +1,10 @@
-import { StructuredData, Seo } from "@/components/seo";
+import { Seo, StructuredData } from "@/components";
 
 function Services() {
   return (
     <>
       <Seo title="" description="" canonical="" />
-      {servicesSchema.map((service, i) => (
-        <StructuredData key={i} data={service} />
-      ))}
-      {/* rest of Services page */}
+      <StructuredData data={""} />
     </>
   )
 }

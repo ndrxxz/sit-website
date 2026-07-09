@@ -1,7 +1,7 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 
-function JsonLd({ data }) {
+function StructuredData({ data }) {
   return (
     <Helmet>
       <script type="application/ld+json">
@@ -11,4 +11,4 @@ function JsonLd({ data }) {
   );
 }
 
-export default JsonLd;
+export default StructuredData;
