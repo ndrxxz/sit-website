@@ -1,10 +1,10 @@
-import JsonLd from "@/components/seo/JsonLd";
-import { organizationSchema } from "@/config/siteData";
+import { StructuredData, Seo } from "@/components/seo";
 
 function Home() {
   return (
     <>
-      <JsonLd data={organizationSchema} />
+      <Seo title="" description="" canonical="" />
+      <StructuredData data={""} />
     </>
   );
 }
