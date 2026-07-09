@@ -1,11 +1,11 @@
-import JsonLd from "@/components/seo/JsonLd";
-import { servicesSchema } from "@/config/siteData";
+import { StructuredData, Seo } from "@/components/seo";
 
 function Services() {
   return (
     <>
+      <Seo title="" description="" canonical="" />
       {servicesSchema.map((service, i) => (
-        <JsonLd key={i} data={service} />
+        <StructuredData key={i} data={service} />
       ))}
       {/* rest of Services page */}
     </>

@@ -1,12 +1,11 @@
-import JsonLd from "@/components/seo/JsonLd";
-import { aboutUsSchema } from "@/config/siteData";
+import { StructuredData, Seo } from "@/components/seo";
 
 function AboutUs() {
   return (
-    // <>
-    //   <JsonLd data={aboutUsSchema} />
-    // </>
-    <div>About Us — coming soon!</div>
+    <>
+      <Seo title="" description="" canonical="" />
+      <StructuredData data={""} />
+    </>
   );
 }
 
