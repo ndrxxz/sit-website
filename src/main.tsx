@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "@fontsource/inter";
 import "./index.css";
 import App from "./App.js";
 import { HelmetProvider } from "react-helmet-async";
