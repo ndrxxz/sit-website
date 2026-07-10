@@ -14,32 +14,48 @@ export default defineConfig(({ command }) => ({
     createHtmlPlugin({
       minify: true,
     }),
-    obfuscator({
-      compact: true,
-      controlFlowFlattening: true,
-      controlFlowFlatteningThreshold: 1,
-      deadCodeInjection: true,
-      deadCodeInjectionThreshold: 0.4,
-      debugProtection: true,
-      debugProtectionInterval: 2000,
-      disableConsoleOutput: true,
-      identifierNamesGenerator: "hexadecimal",
-      numbersToExpressions: true,
-      rotateStringArray: true,
-      selfDefending: true,
-      shuffleStringArray: true,
-      simplify: true,
-      splitStrings: true,
-      splitStringsChunkLength: 5,
-      stringArray: true,
-      stringArrayEncoding: ["base64"],
-      stringArrayThreshold: 1
-    } as any)
-  ],
+
+    command === "build"
+      ? obfuscatorPlugin({
+          compact: true,
+          controlFlowFlattening: true,
+          controlFlowFlatteningThreshold: 1,
+          deadCodeInjection: true,
+          deadCodeInjectionThreshold: 0.4,
+          debugProtection: true,
+          debugProtectionInterval: 2000,
+          disableConsoleOutput: true,
+          identifierNamesGenerator: "hexadecimal",
+          numbersToExpressions: true,
+          rotateStringArray: true,
+          selfDefending: true,
+          shuffleStringArray: true,
+          simplify: true,
+          splitStrings: true,
+          splitStringsChunkLength: 5,
+          stringArray: true,
+          stringArrayEncoding: ["base64"],
+          stringArrayThreshold: 1,
+        } as any)
+      : null,
   ].filter(Boolean),
+
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+
+  build: {
+    cssMinify: true,
+    sourcemap: false,
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+      mangle: true,
     },
   },
 }));
