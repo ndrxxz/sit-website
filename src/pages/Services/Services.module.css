@@ -1,0 +1,67 @@
+@reference "tailwindcss";
+
+
+.sideBarDesktop {
+   @apply
+    fixed
+    h-screen
+    flex-col
+    gap-[16px];
+}
+
+/*.sideBarDesktop {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sideBarDesktop::-webkit-scrollbar {
+  display: none;
+}*/
+
+.sideBarBtn {
+  @apply
+    flex
+    flex-col
+    md:flex-row
+    items-center
+    justify-center
+    md:justify-start
+    gap-1
+    md:gap-3
+
+    w-full
+    md:w-[200px]
+
+    px-2
+    md:px-4
+    py-3
+    md:py-3
+
+    text-[12px]
+    md:text-[14px]
+
+    rounded-[12px]
+    /*font-semibold*/
+    md:font-medium
+    cursor-pointer
+    select-none;
+}
+
+.sideBarBtn:global(.active) {
+  	@apply 
+  		md:bg-[#FAF5FF]
+  		text-[#A855F7];
+}
+
+.sideBarMobile {
+  @apply
+    bg-white
+    fixed
+    bottom-0
+    left-0
+    z-50
+    w-full
+    flex-row
+    gap-3
+    p-3;
+}

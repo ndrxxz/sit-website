@@ -2,7 +2,6 @@ import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import path from "path";
 import obfuscatorPlugin from "vite-plugin-javascript-obfuscator";
 import { createHtmlPlugin } from "vite-plugin-html";
 
@@ -37,7 +36,19 @@ export default defineConfig(({ command }) => ({
         stringArrayThreshold: 1,
       }),
   ].filter(Boolean),
-
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: [
+            "react",
+            "react-dom",
+            "react-router-dom",
+          ],
+        },
+      },
+    },
+  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
