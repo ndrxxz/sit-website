@@ -1,4 +1,5 @@
-import { fileURLToPath, URL } from "node:url";
+
+import path from "path"
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
@@ -38,7 +39,7 @@ export default defineConfig(({ command }) => ({
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": fileURLToPath(new URL("./src", import.meta.url)),
+      "@": path.resolve(__dirname, "src"),
     },
   },
 }));
