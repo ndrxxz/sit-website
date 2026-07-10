@@ -9,7 +9,7 @@ export default function Software() {
 
       <SectionHeader
         title="Software Services"
-        description="Managing application installations, system updates, and troubleshooting software errors."
+        description="Expert technical support, network design, and security management tailored to maximize your system's efficiency and reliability."
       />
 
       <SectionBody services={Scheme} />
