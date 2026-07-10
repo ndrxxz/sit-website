@@ -11,7 +11,7 @@
 		justify-center 
 		py-5 
 		bg-transparent 
-		backdrop-blur-lg 
+		/* backdrop-blur-lg  */
 		border-b 
 		border-white/20;
 }
