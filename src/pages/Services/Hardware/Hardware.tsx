@@ -1,5 +1,5 @@
 import { BookCall } from "@/components";
-import { Thumbnail, SectionHeader, SectionBody } from "@/pages/services";
+import { Thumbnail, SectionHeader, SectionBody } from "@/pages/Services";
 import { Scheme } from "./scheme";
 
 export default function Hardware() {
