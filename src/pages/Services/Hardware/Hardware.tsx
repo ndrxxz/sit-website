@@ -9,7 +9,7 @@ export default function Hardware() {
             
             <SectionHeader
                 title="Hardware Services"
-                description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget ligula."/>
+                description="Build, upgrade, and maintain your computer systems with reliable hardware solutions. We provide expert services to maximize performance, improve reliability, and extend the lifespan of your devices."/>
 
             <SectionBody services={Scheme} />
 

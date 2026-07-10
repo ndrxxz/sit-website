@@ -1,7 +1,7 @@
 
 import { MdComputer, MdMemory } from "react-icons/md";
 import { BsBoxSeam } from "react-icons/bs";
-import { HiSparkles } from "react-icons/hi";
+import { PiBroomLight } from "react-icons/pi";
 
 export interface Sheme {
     id: number;
@@ -15,28 +15,28 @@ export const Scheme: Sheme[] =  [
         id: 1,
         title: "Custom PC Assembly",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Curabitur eget ligula.",
+          "Get a custom-built PC tailored to your specific needs—whether for gaming, business, graphic design, video editing, or everyday productivity. We use quality components for optimal performance and reliability.",
         icon: MdComputer
     },
     {
         id: 2,
         title: "Component Upgrades",
         description:
-          "Lorem ipsum dolor sit amet, consectetur.",
+          "Boost your computer's speed and efficiency with professional hardware upgrades. From SSDs and RAM to graphics cards and processors, we recommend and install the right components for your system.",
         icon: MdMemory
     },
     {
         id: 3,
         title: "Inventory Management",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Curabitur eget.",
+          "Keep track of your IT assets with organized hardware inventory management. We help businesses monitor equipment, manage warranties, and maintain accurate asset records for better operational efficiency.",
         icon: BsBoxSeam
     },
     { 
         id: 4,
         title: "Deep Cleaning",
         description:
-          "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
-        icon: HiSparkles
+          "Improve cooling performance and extend your computer's lifespan with professional internal cleaning. We safely remove dust buildup, replace thermal paste when needed, and optimize airflow to prevent overheating.",
+        icon: PiBroomLight
     }
 ];
