@@ -10,7 +10,7 @@
 		flex 
 		justify-center 
 		py-5 
-		bg-white/70 
+		bg-transparent 
 		backdrop-blur-lg 
 		border-b 
 		border-white/20;
