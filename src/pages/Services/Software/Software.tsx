@@ -1,5 +1,5 @@
 import { BookCall } from "@/components";
-import { Thumbnail, SectionHeader, SectionBody } from "@/pages/services";
+import { Thumbnail, SectionHeader, SectionBody } from "@/pages/Services";
 import { Scheme } from "./scheme";
 
 export default function Software() {
@@ -9,7 +9,7 @@ export default function Software() {
 
       <SectionHeader
         title="Software Services"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eget ligula."
+        description="Managing application installations, system updates, and troubleshooting software errors."
       />
 
       <SectionBody services={Scheme} />
