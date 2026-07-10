@@ -1,8 +1,6 @@
 
-import { FaCoins, FaCog } from "react-icons/fa";
-
 import { BookCall } from "@/components";
-import { SectionHeader } from "@/pages/services";
+import { SectionHeader } from "@/pages/Services";
 import CardButton from "./CardButton";
 
 import Pinya from "@/assets/pinya.svg";
@@ -20,13 +18,15 @@ export default function Application() {
           title="Finya"
           subtitle="Loan Management System."
           icon={Pinya}
-          iconBg="bg-orange-500"/>
+          iconBg="bg-orange-500"
+          href=""/>
 
         <CardButton
           title="Ubas"
           subtitle="HR and Employee System."
           icon={Ubas}
-          iconBg="bg-purple-400"/>
+          iconBg="bg-purple-400"
+          href=""/>
       </div>
 
       <div className="px-6 py-12">
