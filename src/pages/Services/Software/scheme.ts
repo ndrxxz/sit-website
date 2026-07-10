@@ -1,3 +1,5 @@
+import { IconType } from "react-icons";
+
 import {
   RiInstallLine,
   RiSettings6Line,

@@ -1,3 +1,4 @@
+import { IconType } from "react-icons";
 
 import { RiVirusLine } from "react-icons/ri";
 import { MdMemory } from "react-icons/md";

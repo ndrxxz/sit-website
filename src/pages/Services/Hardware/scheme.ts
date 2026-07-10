@@ -1,3 +1,4 @@
+import { IconType } from "react-icons";
 
 import { MdComputer, MdMemory } from "react-icons/md";
 import { BsBoxSeam } from "react-icons/bs";

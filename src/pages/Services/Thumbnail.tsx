@@ -1,8 +1,12 @@
 import { useState } from "react";
 
-function Thumbnail({ imageUrl }) {
-  	const [hasError, setHasError] = useState(false);
-  	const showDefault = !imageUrl || hasError;
+type ThumbnailProps = {
+  imageUrl?: string;
+};
+
+function Thumbnail({ imageUrl }: ThumbnailProps) {
+  const [hasError, setHasError] = useState(false);
+  const showDefault = !imageUrl || hasError;
 
   	return (
 	    <div className="">
