@@ -11,7 +11,6 @@ import { Seo } from "@/components";
 import { tabs } from "./tabs";
 
 function Services() {
-  
     const swiperRef = useRef<SwiperType | null>(null);
     const [active, setActive] = useState(0);
 
@@ -28,12 +27,9 @@ function Services() {
         <button
             key={title}
             type="button"
-            className={`${styles.sideBarBtn} ${
-                active === index ? "active" : ""
-            }`}
+            className={`${styles.sideBarBtn} ${active === index ? "active" : ""}`}
             aria-current={active === index}
-            onClick={() => handleTabClick(index)}
-        >
+            onClick={() => handleTabClick(index)}>
             <span>
                 <Icon />
             </span>
@@ -42,52 +38,52 @@ function Services() {
     ));
 
     return (
-    <>
+        <>
         <Seo
             title="Services"
             description="Hardware, Software, Security, and Application Services."
-            canonical="/services"
-        />
+            canonical="/services"/>
 
-        <section className="flex flex-col sm:flex-row gap-4">
-            
-            {/* Mobile bottom tabs */}
+        <section className="relative flex flex-col md:flex-row">
+
+            {/* Desktop Sidebar */}
+            <nav
+                className={`${styles.sideBarDesktop} hidden md:flex`}
+                aria-label="Service Categories">
+              {renderTabs()}
+            </nav>
+
+            {/* Mobile Bottom Tabs */}
             <nav
                 className={`${styles.sideBarMobile} flex md:hidden`}
-                aria-label="Service Categories"
-            >
+                aria-label="Service Categories">
                 {renderTabs()}
             </nav>
 
-            {/* Desktop sidebar */}
-            <nav
-                className={`${styles.sideBarDesktop} hidden md:flex sm:w-[30%] lg:w-[25%]`}
-                aria-label="Service Categories"
-            >
-                {renderTabs()}
-            </nav>
-
-            <main className="md:ml-[30%] lg:ml-[25%] w-full sm:w-[70%] lg:w-[75%] py-3 pb-20 lg:pb-3">
+            {/* Content */}
+            <main className="w-full md:pl-[220px] min-w-0 py-3 pb-20 lg:pb-3">
                 <Swiper
+                    className="w-full"
                     modules={[Mousewheel, EffectFade]}
                     effect="fade"
                     fadeEffect={{
-                        crossFade: true,
+                      crossFade: true,
                     }}
                     speed={500}
                     onSwiper={(swiper) => {
-                        swiperRef.current = swiper;
+                      swiperRef.current = swiper;
                     }}
                     onSlideChange={handleSlideChange}>
                     {tabs.map(({ title, component: Component }) => (
-                        <SwiperSlide key={title}>
-                            <Component />
-                        </SwiperSlide>
-                    ))}
+                    <SwiperSlide key={title} className="w-full">
+                        <Component />
+                    </SwiperSlide>
+                ))}
                 </Swiper>
             </main>
+            
         </section>
-    </>
+        </>
     );
 }
 
