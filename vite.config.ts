@@ -36,19 +36,6 @@ export default defineConfig(({ command }) => ({
         stringArrayThreshold: 1,
       }),
   ].filter(Boolean),
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          react: [
-            "react",
-            "react-dom",
-            "react-router-dom",
-          ],
-        },
-      },
-    },
-  },
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
