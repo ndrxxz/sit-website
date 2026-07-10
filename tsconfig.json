@@ -14,7 +14,7 @@
     "strict": false,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["src/*"],
       "@config": ["./src/config"],
       "@config/*": ["./src/config/*"]
     }
