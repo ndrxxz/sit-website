@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 
-import { PageLoader } from "@/components";
+import { PageLoader, Navigation } from "@/components";
 
 import useOnlineStatus from "@/hooks/useOnlineStatus";
 import NoInternetConnection from "@/pages/NoInternetConnection";
@@ -20,7 +20,8 @@ function AppRoutes() {
 
   return (
     <Suspense fallback={<PageLoader />}>
-      <div className="max-w-5xl mx-auto p-4">
+      <Navigation />
+      <div className="max-w-5xl mx-auto p-4 pt-30">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/services" element={<Services />} />
