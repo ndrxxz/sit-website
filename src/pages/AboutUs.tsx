@@ -1,4 +1,4 @@
-import { StructuredData, Seo } from "@/components/seo";
+import { Seo, StructuredData } from "@/components";
 
 function AboutUs() {
   return (
