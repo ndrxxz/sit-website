@@ -38,10 +38,16 @@
 		shrink-0 
 		items-center 
 		justify-center 
-		gap-[8px] 
-		py-[12px] 
-		px-[20px] 
-		text-[14px]
+		gap-[8px]
+
+		sm:py-[18px] 
+		sm:px-[20px] 
+		sm:text-[14px]
+
+		py-[10px] 
+		px-[18px] 
+		text-[12px]
+
 		transition-all
 		duration-300
 		ease-in-out 
@@ -61,9 +67,15 @@
 		items-center 
 		justify-center 
 		gap-[8px] 
-		py-[12px] 
-		px-[20px] 
-		text-[14px]
+		
+		sm:py-[18px] 
+		sm:px-[20px] 
+		sm:text-[14px]
+
+		py-[10px] 
+		px-[18px] 
+		text-[12px]
+
 		transition-all
 		duration-300
 		ease-in-out 
