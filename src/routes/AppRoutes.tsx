@@ -5,7 +5,7 @@ import { PageLoader, Navigation } from "@/components";
 
 import useOnlineStatus from "@/hooks/useOnlineStatus";
 import NoInternetConnection from "@/pages/NoInternetConnection";
-import ErrorBoundary from "@/components/ErrorBoundary";
+import ErrorBoundary from "@/pages/ErrorBoundary";
 
 const Home = lazy(() => import("@/pages/Home"));
 const Services = lazy(() => import("@/pages/Services"));
