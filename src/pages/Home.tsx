@@ -10,7 +10,7 @@ function Home() {
         className="w-screen relative left-1/2 right-1/2 mx-[-50vw] -mt-30 min-h-screen bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="flex items-center justify-center flex-col gap-10 min-h-screen px-6 py-12 md:px-12">
+        <div className="flex items-center justify-center flex-col gap-10 min-h-screen px-6 pt-32 py-12 md:px-12">
           <header className="flex flex-col gap-4 leading-[100%] tracking-normal text-center max-w-3xl">
             <h1 className="font-medium text-6xl">
               Igniting Every Aspect of Your Digital Growth.
