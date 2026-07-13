@@ -1,4 +1,6 @@
 
+import style from "./Services.module.css";
+
 const SectionBody = ({ services }) => {
   return (
     <section className="py-6">
@@ -10,17 +12,17 @@ const SectionBody = ({ services }) => {
             <div key={service.id} className="flex gap-5">
               
               {/* Icon */}
-              <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-violet-100 text-violet-600 flex-shrink-0">
+              <div className={style.sectionBodyIcon}>
                 <Icon className="text-[18px]" />
               </div>
 
               {/* Content */}
               <div>
-                <h3 className="text-[16px] font-semibold mb-2">
+                <h3 className={style.sectionBodyContentTitle}>
                   {service.title}
                 </h3>
 
-                <p className="text-gray-500 leading-relaxed text-[12px]">
+                <p className={style.sectionBodyContentDesc}>
                   {service.description}
                 </p>
               </div>

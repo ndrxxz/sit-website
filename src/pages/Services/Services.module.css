@@ -1,6 +1,5 @@
 @reference "tailwindcss";
 
-
 .sideBarDesktop {
    @apply
     fixed
@@ -8,15 +7,6 @@
     flex-col
     gap-[16px];
 }
-
-/*.sideBarDesktop {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-.sideBarDesktop::-webkit-scrollbar {
-  display: none;
-}*/
 
 .sideBarBtn {
   @apply
@@ -41,7 +31,6 @@
     md:text-[14px]
 
     rounded-[12px]
-    /*font-semibold*/
     md:font-medium
     cursor-pointer
     select-none;
@@ -64,4 +53,31 @@
     flex-row
     gap-3
     p-3;
+}
+
+.sectionBodyIcon {
+  @apply 
+    w-10 
+    h-10 
+    flex 
+    items-center 
+    justify-center 
+    rounded-xl 
+    bg-violet-100 
+    text-violet-600 
+    flex-shrink-0
+}
+
+.sectionBodyContentTitle {
+  @apply
+    text-[16px] 
+    font-semibold 
+    mb-2
+}
+
+.sectionBodyContentDesc {
+  @apply
+    text-gray-500 
+    leading-relaxed 
+    text-[12px]
 }
