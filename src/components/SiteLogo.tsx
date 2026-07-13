@@ -17,7 +17,7 @@ export default function SiteLogo({
             alt="Site Logo"
             width={width}
             height={height}
-            className={`rounded-full object-cover ${className}`}
+            className={`min-h-10 min-w-10 rounded-full object-cover ${className}`}
         />
     );
 }

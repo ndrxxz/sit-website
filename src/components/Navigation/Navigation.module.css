@@ -2,8 +2,9 @@
 
 .main {
 	@apply 
+		pt-5
 		fixed 
-		top-0 
+		top-0
 		left-0 
 		right-0 
 		z-50 
@@ -16,20 +17,17 @@
 		border-white/20;
 }
 
-.unOrdered {
+.unOrderList {
 	@apply 
-		flex h-[70px] 
+		flex  
 		w-fit 
 		items-center 
 		justify-center
-		
-		sm:gap-2
-		gap-1
+		gap-4
 
 		rounded-full 
 		bg-white 
 		
-		sm:p-[10px]
 		p-[8px]
 
 		shadow-[0px_12px_40px_rgba(0,27,92,0.08)];
@@ -39,20 +37,20 @@
 {
 	@apply
 		flex 
-		h-[50px] 
+		h-[45px] 
 		w-full 
 		shrink-0 
 		items-center 
 		justify-center 
 		gap-[8px]
 
-		sm:py-[18px] 
-		sm:px-[20px] 
-		sm:text-[14px]
+		py-[10px] 
+		px-[20px] 
+		text-[13px]
 
-		py-[8px] 
-		px-[12px] 
-		text-[10px]
+		bg-[#121212] 
+		shadow-[inset_0_0_20px_rgba(255,255,255,0.8)] 
+		text-white
 
 		transition-all
 		duration-300
@@ -67,19 +65,15 @@
 .navLink {
 	@apply
 		flex 
-		h-[50px] 
+		h-[45px] 
 		w-full 
-		shrink-0 
 		items-center 
-		justify-center 
-		gap-[8px] 
-		
-		sm:py-[18px] 
-		sm:px-[20px] 
-		sm:text-[14px]
+		justify-center
 
 		py-[10px] 
-		px-[18px] 
+		sm:px-[12px] 
+
+		sm:text-[13px]
 		text-[12px]
 
 		transition-all
