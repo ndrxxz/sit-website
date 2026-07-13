@@ -40,11 +40,12 @@ const CardButton: React.FC<CardButtonProps> = ({
           className={`${iconBg} w-14 h-14 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}
         >
           <img src={icon} alt={title} className="w-8 h-8" />
+          
         </div>
 
         <div className="py-2">
           <h2 className="text-1xl font-bold">{title}</h2>
-          <p className="text-gray-500 text-[12px]">{subtitle}</p>
+          <p className="text-gray-500 sm:text-sm text-xs">{subtitle}</p>
         </div>
 
       </div>
@@ -54,7 +55,7 @@ const CardButton: React.FC<CardButtonProps> = ({
           className="
             inline-flex items-center gap-2
             rounded-full bg-white px-4 py-2
-            text-sm shadow
+            sm:text-sm text-xs shadow
             transition-all duration-300
           "
         >

@@ -6,11 +6,16 @@ import styles from "./Navigation.module.css";
 import { NavLink } from "react-router-dom";
 import { tabs } from "./tabs";
 
+import { SiteLogo } from "@/components";
+
 export default function Navigation() {
     return (
         <>
             <section className={styles.main}>
                 <ul className={styles.unOrdered}>
+                    <li className="ms-2">
+                        <SiteLogo />
+                    </li>
                     {tabs.map(({ title, path, id, icon: Icon }) => (
                         <li key={id}>
                         {id === 4 ? (
