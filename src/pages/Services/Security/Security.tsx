@@ -10,7 +10,7 @@ export default function Security() {
             
       <SectionHeader
           title="Security Services"
-          description="Cyber threats are constantly evolving. Protect your business with comprehensive security solutions that keep your systems, data, and operations safe 24/7."/>
+          description="Comprehensive threat prevention and data security tailored to keep your business safe."/>
 
       <SectionBody services={Scheme} />
 
