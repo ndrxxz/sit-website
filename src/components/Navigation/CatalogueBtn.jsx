@@ -16,10 +16,30 @@ import style from "./Navigation.module.css";
 export default function CatalogueButton() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const handleOpen = () => setIsOpen(true);
-    const handleClose = () => setIsOpen(false);
+    const handleOpen = () => {
+        setIsOpen(true);
+
+        const url = new URL(window.location);
+        url.searchParams.set("catalogue", "open");
+
+        window.history.replaceState({}, "", url);
+    };
+
+    const handleClose = () => {
+        setIsOpen(false);
+
+        const url = new URL(window.location);
+        url.searchParams.delete("catalogue");
+
+        window.history.replaceState({}, "", url);
+    };
 
     useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get("catalogue") === "open") {
+            setIsOpen(true);
+        }
+
         const handleEscape = (e) => {
             if (e.key === "Escape") handleClose();
         };

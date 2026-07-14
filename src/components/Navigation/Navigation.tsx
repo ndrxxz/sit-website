@@ -28,18 +28,12 @@ export default function Navigation() {
                         <ul className={style.unOrderList}>
                             <li className="px-2">
                                 <Link to="/" aria-label="Logo">
-                                    <SiteLogo />
+                                    <SiteLogo className="min-h-10 min-w-10 shadow-sm" />
                                 </Link>
                             </li>
 
                             {tabs.map((tab) => {
-                                const {
-                                    id,
-                                    title,
-                                    path,
-                                    icon: Icon,
-                                    type,
-                                } = tab;
+                                const {id, title, path, icon: Icon, type} = tab;
 
                                 return (
                                     <li key={id}>
@@ -50,10 +44,7 @@ export default function Navigation() {
                                                     `${style.navLink} group ${
                                                         isActive
                                                             ? "active"
-                                                            : ""
-                                                    }`
-                                                }
-                                            >
+                                                            : ""}`}>
                                                 {({ isActive }) => (
                                                     <>
                                                         {Icon && (
@@ -61,14 +52,10 @@ export default function Navigation() {
                                                                 className={`
                                                                 transition-opacity duration-300
                                                                 ${
-                                                                    id <= 3
-                                                                        ? "opacity-0 group-hover:opacity-100"
-                                                                        : "opacity-100"
+                                                                    id <= 3? "opacity-0 group-hover:opacity-100": "opacity-100"
                                                                 }
                                                                 ${
-                                                                    isActive
-                                                                        ? "opacity-100"
-                                                                        : ""
+                                                                    isActive? "opacity-100": ""
                                                                 }
                                                             `}
                                                             />
@@ -89,8 +76,6 @@ export default function Navigation() {
                     </div>
                 </div>
             </header>
-
-            
 
         </>
     );
