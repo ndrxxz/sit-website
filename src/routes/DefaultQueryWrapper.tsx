@@ -1,10 +1,14 @@
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
-const DEFAULT_QUERY_PARAMS = {
+type DefaultQueryParams = {
+    [path: string]: Record<string, string>;
+};
+
+const DEFAULT_QUERY_PARAMS: DefaultQueryParams = {
     "/services": {
         tab: "0",
-    }
+    },
 };
 
 function DefaultQueryWrapper() {

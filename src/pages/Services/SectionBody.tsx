@@ -1,5 +1,17 @@
 
 import style from "./Services.module.css";
+import type { IconType } from "react-icons";
+
+type Service = {
+    id: number;
+    icon: IconType;
+    title: string;
+    description: string;
+};
+
+type SectionBodyProps = {
+    services: Service[];
+};
 
 const ServiceIcon = ({ Icon, className }) => (
         <div className={`${style.sectionBodyIcon} ${className}`}>
@@ -7,7 +19,7 @@ const ServiceIcon = ({ Icon, className }) => (
         </div>
     );
 
-const SectionBody = ({ services }) => {
+const SectionBody = ({ services }: SectionBodyProps) => {
 
     return (
         <section className="py-6">

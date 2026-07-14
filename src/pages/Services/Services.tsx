@@ -69,7 +69,7 @@ function Services() {
         clearTimeout(timer);
         timer = setTimeout(() => {
           setIsScrolling(false);
-        }, 500); // show ulit 200ms matapos huminto ang scroll
+        }, 500); // show ulit 500ms matapos huminto ang scroll
       };
 
       window.addEventListener("scroll", handleScroll);

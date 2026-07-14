@@ -19,7 +19,7 @@ export default function CatalogueButton() {
     const handleOpen = () => {
         setIsOpen(true);
 
-        const url = new URL(window.location);
+        const url = new URL(window.location.href);
         url.searchParams.set("catalogue", "open");
 
         window.history.replaceState({}, "", url);
@@ -28,7 +28,7 @@ export default function CatalogueButton() {
     const handleClose = () => {
         setIsOpen(false);
 
-        const url = new URL(window.location);
+        const url = new URL(window.location.href);
         url.searchParams.delete("catalogue");
 
         window.history.replaceState({}, "", url);

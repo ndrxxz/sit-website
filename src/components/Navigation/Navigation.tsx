@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RxDotFilled } from "react-icons/rx";
 import { motion } from "motion/react";
@@ -15,7 +14,7 @@ export default function Navigation() {
     const tapAnimation = {
         whileTap: { scale: 1.04 },
         transition: {
-            type: "spring",
+            type: "spring" as const,
             stiffness: 300,
             damping: 10,
         },
