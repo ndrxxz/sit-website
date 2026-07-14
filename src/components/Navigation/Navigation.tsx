@@ -1,12 +1,13 @@
-import { motion, type HTMLMotionProps } from "motion/react";
-import type { ReactNode } from "react";
+import { useState } from "react";
+import { motion } from "motion/react";
+import { Link, NavLink } from "react-router-dom";
 
 import style from "./Navigation.module.css";
 
-import { NavLink } from "react-router-dom";
 import { tabs } from "./tabs";
-
 import { SiteLogo } from "@/components";
+
+import CatalogueBtn from "./CatalogueBtn";
 
 export default function Navigation() {
 
@@ -15,72 +16,82 @@ export default function Navigation() {
         transition: {
             type: "spring",
             stiffness: 300,
-            damping: 10
-        }
+            damping: 10,
+        },
     };
 
     return (
         <>
             <header className={style.main}>
-                <div className="container px-2 mx-auto">
+                <div className="container mx-auto px-2">
                     <div className="flex h-12 items-center justify-center px-3">
                         <ul className={style.unOrderList}>
-                            
                             <li className="px-2">
-                                <a href="/" aria-label="Logo">
+                                <Link to="/" aria-label="Logo">
                                     <SiteLogo />
-                                </a>
+                                </Link>
                             </li>
 
                             {tabs.map((tab) => {
-                                const { id, title, path, icon: Icon, type } = tab;
+                                const {
+                                    id,
+                                    title,
+                                    path,
+                                    icon: Icon,
+                                    type,
+                                } = tab;
 
                                 return (
-                                <li key={id}>
-                                  {type === "button" ? (
-                                        <motion.button
-                                                    type="button"
-                                                    whileHover={{ scale: 1.03 }}
-                                                    {...tapAnimation}
-                                                    aria-label="Catalogue button"
-                                                    className={style.catalogueBtn}
-                                                    onClick={() => {}}>
+                                    <li key={id}>
+                                        <motion.div {...tapAnimation}>
+                                            <NavLink
+                                                to={path}
+                                                className={({ isActive }) =>
+                                                    `${style.navLink} group ${
+                                                        isActive
+                                                            ? "active"
+                                                            : ""
+                                                    }`
+                                                }
+                                            >
+                                                {({ isActive }) => (
+                                                    <>
+                                                        {Icon && (
+                                                            <Icon
+                                                                className={`
+                                                                transition-opacity duration-300
+                                                                ${
+                                                                    id <= 3
+                                                                        ? "opacity-0 group-hover:opacity-100"
+                                                                        : "opacity-100"
+                                                                }
+                                                                ${
+                                                                    isActive
+                                                                        ? "opacity-100"
+                                                                        : ""
+                                                                }
+                                                            `}
+                                                            />
+                                                        )}
 
-                                            {Icon && <Icon className="opacity-100" />}
-
-                                            <span>{title}</span>
-                                        </motion.button>
-                                  ) : (
-                                    <motion.div {...tapAnimation}>
-                                        <NavLink to={path}
-                                            className={({ isActive }) =>
-                                            `${style.navLink} group ${isActive ? "active" : ""}`}>
-                                            {({ isActive }) => (
-                                            <>
-                                                {Icon && (
-                                                  <Icon
-                                                    className={`
-                                                        transition-opacity duration-300
-                                                        ${id <= 3 ? "opacity-0 group-hover:opacity-100" : "opacity-100"}
-                                                        ${isActive ? "opacity-100" : ""}
-                                                    `}
-                                                  />
+                                                        <span>{title}</span>
+                                                    </>
                                                 )}
-                                            <span>{title}</span>
-                                            </>
-                                        )}
-                                      </NavLink>
-                                    </motion.div>
-                                  )}
-                                </li>
-                                ); // closed return
-
+                                            </NavLink>
+                                        </motion.div>
+                                    </li>
+                                );
                             })}
-
+                            <li>
+                                <CatalogueBtn />
+                            </li>
                         </ul>
                     </div>
                 </div>
             </header>
+
+            
+
         </>
     );
 }

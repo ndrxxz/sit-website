@@ -1,5 +1,4 @@
 import { RxDotFilled } from "react-icons/rx";
-import { VscDownload } from "react-icons/vsc";
 
 import { IconType } from "react-icons";
 
@@ -8,7 +7,6 @@ export interface Tab {
   path?: string;
   id: number;
   icon?: IconType;
-  type: string;
 }
 
 export const tabs: Tab[] = [
@@ -16,27 +14,18 @@ export const tabs: Tab[] = [
     title: "Home",
     path: "",
     id: 1,
-    icon: RxDotFilled,
-    type: "link"
+    icon: RxDotFilled
   },
   {
     title: "Services",
     path: "services",
     id: 2,
-    icon: RxDotFilled,
-    type: "link"
+    icon: RxDotFilled
   },
   {
     title: "About us",
     path: "about",
     id: 3,
-    icon: RxDotFilled,
-    type: "link"
-  },
-  {
-    title: "Catalogue",
-    id: 4,
-    icon: VscDownload,
-    type: "button"
+    icon: RxDotFilled
   }
 ];
