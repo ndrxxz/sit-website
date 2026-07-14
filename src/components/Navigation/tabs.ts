@@ -21,7 +21,7 @@ export const tabs: Tab[] = [
   },
   {
     title: "Services",
-    path: "services",
+    path: "services?tab=0",
     id: 2,
     icon: MdDesignServices
   },

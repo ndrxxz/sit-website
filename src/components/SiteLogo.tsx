@@ -18,6 +18,7 @@ export default function SiteLogo({
             width={width}
             height={height}
             className={`rounded-full object-cover ${className}`}
+            onContextMenu={(e) => e.preventDefault()}
         />
     );
 }

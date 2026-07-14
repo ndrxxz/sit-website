@@ -1,34 +1,108 @@
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import { motion } from "motion/react";
+import { IoClose } from "react-icons/io5";
+
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
+
+import EmptyImg from "@/assets/placeholderImg.svg";
 
 type ThumbnailProps = {
-  imageUrl?: string;
+  	imageUrl?: string;
 };
 
 function Thumbnail({ imageUrl }: ThumbnailProps) {
-  const [hasError, setHasError] = useState(false);
-  const showDefault = !imageUrl || hasError;
+  	const [hasError, setHasError] = useState(false);
+  	const [searchParams, setSearchParams] = useSearchParams();
+
+  	const currentTab = searchParams.get("tab") ?? "0";
+
+  	const src = hasError || !imageUrl ? EmptyImg : imageUrl;
+  	const thumbnail = searchParams.get("thumbnail");
+	const open = thumbnail && atob(thumbnail) === `open/${currentTab}`;
+
+	const handleOpen = () => {
+	    if (!imageUrl || hasError) return;
+
+	    const params = new URLSearchParams(searchParams);
+
+	    const encrypted = btoa(`open/${currentTab}`);
+
+    	params.set("thumbnail", encrypted);
+
+	    setSearchParams(params, {
+	        replace: false,
+	    });
+	};
+
+	const handleClose = () => {
+	    const params = new URLSearchParams(searchParams);
+	    params.delete("thumbnail");
+
+	    setSearchParams(params, {
+	      	replace: false,
+	    });
+	};
 
   	return (
-	    <div className="">
-	      	{showDefault ? (
-	        <svg
-	          	viewBox="0 0 1048 252"
-	          	xmlns="http://www.w3.org/2000/svg"
-	          	className="w-full h-full"
-	          	preserveAspectRatio="xMidYMid meet">
-	          	<rect width="1048" height="252" rx="32" fill="#F3F4F4" />
-	          	<path
-	            	d="M528.5 120V114H513.5V138H534.5V120H528.5ZM510.5 112.488C510.5 111.666 511.171 111 511.998 111H530L537.5 118.5L537.5 139.489C537.5 140.323 536.833 141 536.01 141H511.99C511.167 141 510.5 140.317 510.5 139.512V112.488ZM522.5 122.25C522.5 123.493 521.493 124.5 520.25 124.5C519.007 124.5 518 123.493 518 122.25C518 121.007 519.007 120 520.25 120C521.493 120 522.5 121.007 522.5 122.25ZM532.25 133.5L526.25 123L518 133.5H532.25Z"
-	            	fill="#868F99"/>
-	        </svg>
-	      	) : (
-	        <img
-	          	src={imageUrl}
-	          	alt="Thumbnail"
-	          	onError={() => setHasError(true)}
-	          	className="w-full h-full object-cover"/>
-	      	)}
-	    </div>
+    <>
+	    <img
+	        src={src}
+	        alt="Thumbnail"
+	        onClick={handleOpen}
+	        onError={() => setHasError(true)}
+	        onContextMenu={(e) => e.preventDefault()}
+	        draggable={false}
+	        className="w-full h-[200px] object-cover rounded-xl cursor-pointer"/>
+
+	    {!hasError && imageUrl && (
+	    <Lightbox
+	        open={open}
+	        close={() => setOpen(false)}
+	        slides={[{ src }]}
+            styles={{
+                container: {
+                    background: "var(--lightbox-bg)",
+                },
+                navigationPrev: { display: "none" },
+                navigationNext: { display: "none" },
+                button: { display: "none" },
+            }}
+            animation={{
+                fade: 300
+            }}
+            render={{
+			    slide: ({ slide }) => (
+			    <div className="flex h-screen w-screen items-center justify-center box-border sm:p-[50px]">
+			      	<img
+			        	src={slide.src}
+			        	alt=""
+			     	/>
+			     </div>
+			    ),
+			}}
+        	toolbar={{
+                buttons: [
+                    <motion.button
+			            type="button"
+			            aria-label="close"
+			            onClick={handleClose}
+			            className="lightBoxCloseBtn"
+			            whileHover={{ scale: 1.04 }}
+			            whileTap={{ scale: 1 }}
+			            transition={{
+			                type: "spring",
+			                stiffness: 300,
+			                damping: 10,
+			            }}
+			        >
+			        	<IoClose size={20} />
+			        </motion.button>
+                ],
+            }}/>
+        )}
+    </>
   	);
 }
 

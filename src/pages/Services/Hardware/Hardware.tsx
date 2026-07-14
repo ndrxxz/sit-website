@@ -5,7 +5,7 @@ import { Scheme } from "./scheme";
 export default function Hardware() {
     return (
         <>
-            <Thumbnail />
+            <Thumbnail/>
             
             <SectionHeader
                 title="Hardware Services"

@@ -69,7 +69,7 @@ function Services() {
         clearTimeout(timer);
         timer = setTimeout(() => {
           setIsScrolling(false);
-        }, 200); // show ulit 200ms matapos huminto ang scroll
+        }, 500); // show ulit 200ms matapos huminto ang scroll
       };
 
       window.addEventListener("scroll", handleScroll);
@@ -96,7 +96,7 @@ function Services() {
               {renderTabs()}
             </nav>
 
-            {/* Mobile Bottom Tabs */}
+            {/* Mobile RideBar Tabs */}
             <motion.nav
                 initial={{ x: 0, opacity: 1 }}
                 animate={

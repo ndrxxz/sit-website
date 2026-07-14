@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { RxDotFilled } from "react-icons/rx";
 import { motion } from "motion/react";
 
@@ -24,15 +24,15 @@ export default function Navigation() {
     return (
         <>
             
-            <div className="md:container md:mx-auto md:px-2 w-full">
-                <div className="flex md:h-14 h-10 items-center justify-center">
+            <div className="md:container md:mx-auto w-full">
+                <div className="flex items-center justify-center">
                     <ul className={style.unOrderList}>
 
                         {/* Logo */}
                         <li className="shrink-0 px-2">
-                            <Link to="/" aria-label="Logo">
-                                <SiteLogo className="min-h-10 min-w-10 shadow-sm" />
-                            </Link>
+                            <a href="/" aria-label="Logo">
+                                <SiteLogo className="min-h-10 min-w-10" />
+                            </a>
                         </li>
 
                         {/* Navigation Tabs */}
@@ -56,36 +56,23 @@ export default function Navigation() {
                                             {({ isActive }) => (
                                                 <>
                                                     {/* Desktop */}
-                                                    <RxDotFilled
-                                                        className={`
-                                                            hidden
-                                                            md:inline
-                                                            transition-opacity
-                                                            duration-300
-
-                                                            opacity-0
-                                                            group-hover:opacity-100
-
-                                                            ${
-                                                                isActive
-                                                                    ? "opacity-100"
-                                                                    : ""
-                                                            }
-                                                        `}/>
-
-                                                    <span className="hidden md:flex">
-                                                        {title}
-                                                    </span>
+                                                    <div className="hidden md:flex items-center gap-1">
+                                                        <RxDotFilled
+                                                            className={`
+                                                                transition-opacity
+                                                                duration-300
+                                                                opacity-0
+                                                                group-hover:opacity-100
+                                                                ${isActive ? "opacity-100" : ""}
+                                                            `}
+                                                        />
+                                                        <span>{title}</span>
+                                                    </div>
 
                                                     {/* Mobile */}
-                                                    <div className="flex flex-col gap-1 items-center justify-center">
-                                                        {Icon && (
-                                                            <Icon
-                                                                className="flex md:hidden"
-                                                                size={18}
-                                                            />
-                                                        )}
-                                                        <span className="md:hidden flex text-[10px]">
+                                                    <div className="flex md:hidden flex-col items-center justify-center gap-1">
+                                                        {Icon && <Icon size={18} />}
+                                                        <span className="max-xs:hidden text-[10px]">
                                                             {title}
                                                         </span>
                                                     </div>
