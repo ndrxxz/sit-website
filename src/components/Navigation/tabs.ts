@@ -1,4 +1,7 @@
-import { RxDotFilled } from "react-icons/rx";
+
+import { MdDesignServices } from "react-icons/md";
+import { FaHome } from "react-icons/fa";
+import { IoPeople } from "react-icons/io5";
 
 import { IconType } from "react-icons";
 
@@ -14,18 +17,18 @@ export const tabs: Tab[] = [
     title: "Home",
     path: "",
     id: 1,
-    icon: RxDotFilled
+    icon: FaHome
   },
   {
     title: "Services",
     path: "services",
     id: 2,
-    icon: RxDotFilled
+    icon: MdDesignServices
   },
   {
     title: "About us",
     path: "about",
     id: 3,
-    icon: RxDotFilled
+    icon: IoPeople
   }
 ];

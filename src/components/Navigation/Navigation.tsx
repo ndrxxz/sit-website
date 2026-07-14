@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { motion } from "motion/react";
 import { Link, NavLink } from "react-router-dom";
+import { RxDotFilled } from "react-icons/rx";
+import { motion } from "motion/react";
 
 import style from "./Navigation.module.css";
 
@@ -22,60 +23,89 @@ export default function Navigation() {
 
     return (
         <>
-            <header className={style.main}>
-                <div className="container mx-auto px-2">
-                    <div className="flex h-12 items-center justify-center px-3">
-                        <ul className={style.unOrderList}>
-                            <li className="px-2">
-                                <Link to="/" aria-label="Logo">
-                                    <SiteLogo className="min-h-10 min-w-10 shadow-sm" />
-                                </Link>
-                            </li>
+            
+            <div className="md:container md:mx-auto md:px-2 w-full">
+                <div className="flex md:h-14 h-10 items-center justify-center">
+                    <ul className={style.unOrderList}>
 
-                            {tabs.map((tab) => {
-                                const {id, title, path, icon: Icon, type} = tab;
+                        {/* Logo */}
+                        <li className="shrink-0 px-2">
+                            <Link to="/" aria-label="Logo">
+                                <SiteLogo className="min-h-10 min-w-10 shadow-sm" />
+                            </Link>
+                        </li>
 
-                                return (
-                                    <li key={id}>
-                                        <motion.div {...tapAnimation}>
-                                            <NavLink
-                                                to={path}
-                                                className={({ isActive }) =>
-                                                    `${style.navLink} group ${
-                                                        isActive
-                                                            ? "active"
-                                                            : ""}`}>
-                                                {({ isActive }) => (
-                                                    <>
+                        {/* Navigation Tabs */}
+                        {tabs.map((tab) => {
+                            const { id, title, path, icon: Icon } = tab;
+
+                            return (
+                                <li 
+                                    key={id}
+                                    className="flex-1 md:flex-none">
+                                    <motion.div
+                                        {...tapAnimation}
+                                        className="flex w-full">
+                                        <NavLink
+                                            to={path}
+                                            className={({ isActive }) =>
+                                                `${style.navLink} group ${
+                                                    isActive ? "active" : ""
+                                                }`
+                                            }>
+                                            {({ isActive }) => (
+                                                <>
+                                                    {/* Desktop */}
+                                                    <RxDotFilled
+                                                        className={`
+                                                            hidden
+                                                            md:inline
+                                                            transition-opacity
+                                                            duration-300
+
+                                                            opacity-0
+                                                            group-hover:opacity-100
+
+                                                            ${
+                                                                isActive
+                                                                    ? "opacity-100"
+                                                                    : ""
+                                                            }
+                                                        `}/>
+
+                                                    <span className="hidden md:flex">
+                                                        {title}
+                                                    </span>
+
+                                                    {/* Mobile */}
+                                                    <div className="flex flex-col gap-1 items-center justify-center">
                                                         {Icon && (
                                                             <Icon
-                                                                className={`
-                                                                transition-opacity duration-300
-                                                                ${
-                                                                    id <= 3? "opacity-0 group-hover:opacity-100": "opacity-100"
-                                                                }
-                                                                ${
-                                                                    isActive? "opacity-100": ""
-                                                                }
-                                                            `}
+                                                                className="flex md:hidden"
+                                                                size={18}
                                                             />
                                                         )}
+                                                        <span className="md:hidden flex text-[10px]">
+                                                            {title}
+                                                        </span>
+                                                    </div>
+                                                </>
+                                            )}
+                                        </NavLink>
+                                    </motion.div>
+                                </li>
+                            );
+                        })}
 
-                                                        <span>{title}</span>
-                                                    </>
-                                                )}
-                                            </NavLink>
-                                        </motion.div>
-                                    </li>
-                                );
-                            })}
-                            <li>
-                                <CatalogueBtn />
-                            </li>
-                        </ul>
-                    </div>
+
+                        {/* Catalogue */}
+                        <li className="shrink-0 px-2">
+                            <CatalogueBtn />
+                        </li>
+
+                    </ul>
                 </div>
-            </header>
+            </div>
 
         </>
     );

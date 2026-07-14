@@ -1,14 +1,17 @@
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Mousewheel, EffectFade } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
-import styles from "./Services.module.css";
 
 import { Seo } from "@/components";
 import { tabs } from "./tabs";
+
+import style from "./Services.module.css";
 
 function Services() {
     const swiperRef = useRef<SwiperType | null>(null);
@@ -44,16 +47,38 @@ function Services() {
             <button
                 key={title}
                 type="button"
-                className={`${styles.sideBarBtn} ${active === index ? "active" : ""}`}
+                className={`${style.sideBarBtn} ${active === index ? "active" : ""}`}
                 aria-current={active === index}
                 onClick={() => handleTabClick(index)}
             >
                 <span>
-                    <Icon />
+                    <Icon className="text-lg sm:text-xl" />
                 </span>
-                <span>{title}</span>
+                <span className="hidden sm:inline text-[9px] md:text-[12px]">{title}</span>
             </button>
         ));
+
+    const [isScrolling, setIsScrolling] = useState(false);
+
+    useEffect(() => {
+      let timer;
+
+      const handleScroll = () => {
+        setIsScrolling(true);
+
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          setIsScrolling(false);
+        }, 200); // show ulit 200ms matapos huminto ang scroll
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+        clearTimeout(timer);
+      };
+    }, []);
 
     return (
         <>
@@ -66,17 +91,26 @@ function Services() {
 
             {/* Desktop Sidebar */}
             <nav
-                className={`${styles.sideBarDesktop} hidden md:flex`}
+                className={`${style.sideBarDesktop} hidden md:flex`}
                 aria-label="Service Categories">
               {renderTabs()}
             </nav>
 
             {/* Mobile Bottom Tabs */}
-            <nav
-                className={`${styles.sideBarMobile} flex md:hidden`}
-                aria-label="Service Categories">
+            <motion.nav
+                initial={{ x: 0, opacity: 1 }}
+                animate={
+                    isScrolling
+                      ? { x: 80, opacity: 0 }
+                      : { x: 0, opacity: 1 }
+                    }
+                transition={{
+                    duration: 0.35,
+                    ease: "easeInOut",
+                }}
+                className={`${style.sideBarMobile} flex md:hidden`}>
                 {renderTabs()}
-            </nav>
+            </motion.nav>
 
             {/* Content */}
             <main className="w-full md:pl-[220px] min-w-0 py-3 pb-20 lg:pb-3">
