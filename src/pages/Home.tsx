@@ -2,9 +2,13 @@ import { Seo, StructuredData, BookCall } from "@/components";
 import heroImage from "@/assets/heroImage.webp";
 
 function Home() {
+  
+  const pageUrl = `${window.location.origin}/`;
+
   return (
     <>
-      <Seo title="Home" description="" canonical="/" />
+      <Seo title="Home" description="Your trusted technology partner for software development, cybersecurity, networking, cloud solutions, and IT infrastructure designed to accelerate business growth." 
+        canonical={pageUrl} />
       <StructuredData data={""} />
       <div
         className="w-screen relative left-1/2 right-1/2 mx-[-50vw] md:-mt-30 min-h-screen bg-cover bg-center bg-no-repeat"

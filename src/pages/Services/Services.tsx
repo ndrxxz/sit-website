@@ -85,12 +85,14 @@ function Services() {
         };
     }, []);
 
+    const pageUrl = `${window.location.origin}/services`;
+
     return (
         <>
         <Seo
             title="Services"
             description="Hardware, Software, Security, and Application Services."
-            canonical="/services"/>
+            canonical={pageUrl}/>
 
         <section className="relative flex flex-col md:flex-row">
 
