@@ -9,7 +9,8 @@ import ErrorBoundary from "@/pages/ErrorBoundary";
 
 import { SuspenseLoader, DefaultQueryWrapper } from "./";
 
-const Home = lazy(() => import("@/pages/Home"));
+import Home from "@/pages/Home";
+
 const Services = lazy(() => import("@/pages/Services"));
 const AboutUs = lazy(() => import("@/pages/AboutUs"));
 const PageNotFound = lazy(() => import("@/pages/PageNotFound"));
