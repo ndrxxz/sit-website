@@ -6,7 +6,7 @@ import { IoClose } from "react-icons/io5";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 
-import EmptyImg from "@/assets/placeholderImg.svg";
+import EmptyImg from "@/assets/placeholderImg.svg?url";
 
 type ThumbnailProps = {
     imageUrl?: string;
