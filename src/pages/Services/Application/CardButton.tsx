@@ -27,10 +27,10 @@ const CardButton: React.FC<CardButtonProps> = ({
         bg-[#F3F4F4] p-3 text-left
         transition-all duration-300
         hover:-translate-y-1
-        opacity-50
+        opacity-60
         ${
           disabled
-            ? "opacity-50 cursor-not-allowed pointer-events-none"
+            ? "opacity-60 cursor-not-allowed pointer-events-none"
             : "hover:opacity-100 cursor-pointer"
         }
       `}
@@ -45,7 +45,8 @@ const CardButton: React.FC<CardButtonProps> = ({
 
         <div className="py-2">
           <h2 className="sm:text-1xl text-sm font-bold">{title}</h2>
-          <p className="text-gray-500 sm:text-sm text-[10px]">{subtitle}</p>
+          <p className="text-dark group-hover:text-gray-500 text-[10px] sm:text-sm group-hover:text-xs 
+            transition-all duration-300">{subtitle}</p>
         </div>
 
       </div>

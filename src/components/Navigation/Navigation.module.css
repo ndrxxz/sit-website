@@ -34,7 +34,7 @@
     duration-300
     ease-in-out
 
-    hover:text-[#A855F7]
+    hover:text-[#7E22CE]
 
     md:w-auto
     md:px-4
@@ -43,7 +43,7 @@
 
 .navLink:global(.active) {
 	@apply
-		text-[#A855F7]
+		text-[#7E22CE]
 }
 
 

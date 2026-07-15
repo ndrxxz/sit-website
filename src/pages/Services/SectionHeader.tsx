@@ -16,7 +16,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
             <h2 className="text-[28px] sm:text-[32px] font-semibold">{title}</h2>
 
             {description && (
-            <p className="text-[12px] sm:text-[14px] text-[#6E7884]">
+            <p className="text-[12px] sm:text-[14px] text-[#5F6B76]">
               {description}
             </p>
             )}

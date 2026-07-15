@@ -39,7 +39,7 @@
 .sideBarBtn:global(.active) {
   	@apply 
   		md:bg-[#FAF5FF]
-  		text-[#A855F7];
+  		text-[#7E22CE];
 }
 
 .sideBarMobile {
