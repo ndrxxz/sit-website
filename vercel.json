@@ -12,7 +12,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self' ws: http: https:;"
+          "value": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: blob: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'; form-action 'self';"
         },
         {
           "key": "X-Frame-Options",
@@ -27,7 +27,7 @@
           "value": "strict-origin"
         },
         {
-          "key": "Permission-Policy",
+          "key": "Permissions-Policy",
           "value": "geolocation=(), microphone=(), camera=()"
         }
       ]
