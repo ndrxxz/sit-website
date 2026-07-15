@@ -24,3 +24,13 @@ html, body {
     transition 
     hover:bg-black/70;
 }
+
+.vstack {
+  @apply 
+    flex flex-col;
+}
+
+.hstack {
+  @apply 
+    flex flex-row;
+}

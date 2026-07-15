@@ -22,7 +22,7 @@ const CardButton: React.FC<CardButtonProps> = ({
       href={disabled ? undefined : href}
       aria-disabled={disabled}
       className={`
-        group relative flex w-[320px] h-[140px]
+        group relative flex w-full sm:w-[380px] h-[140px]
         rounded-3xl
         bg-[#F3F4F4] p-3 text-left
         transition-all duration-300

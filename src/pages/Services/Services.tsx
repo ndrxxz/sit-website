@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 
 import type { Swiper as SwiperType } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Mousewheel, EffectFade } from "swiper/modules";
+import { EffectFade } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/effect-fade";
 
-import { Seo } from "@/components";
+import { Seo, BookCall } from "@/components";
 import { tabs } from "./tabs";
 
 import style from "./Services.module.css";
@@ -40,6 +40,11 @@ function Services() {
         url.searchParams.set("tab", String(index));
 
         window.history.replaceState({}, "", url);
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     };
 
     const renderTabs = () =>
@@ -61,23 +66,23 @@ function Services() {
     const [isScrolling, setIsScrolling] = useState(false);
 
     useEffect(() => {
-      let timer;
+        let timer: ReturnType<typeof setTimeout>;
 
-      const handleScroll = () => {
-        setIsScrolling(true);
+        const handleScroll = () => {
+            setIsScrolling(true);
 
-        clearTimeout(timer);
-        timer = setTimeout(() => {
-          setIsScrolling(false);
-        }, 500); // show ulit 500ms matapos huminto ang scroll
-      };
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                setIsScrolling(false);
+            }, 500);
+        };
 
-      window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll);
 
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-        clearTimeout(timer);
-      };
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+            clearTimeout(timer);
+        };
     }, []);
 
     return (
@@ -113,9 +118,10 @@ function Services() {
             </motion.nav>
 
             {/* Content */}
-            <main className="w-full md:pl-[220px] min-w-0 py-3 pb-20 lg:pb-3">
+            <main className="w-full md:pl-[220px] min-w-0 py-3 pb-20 lg:pb-3 flex flex-col gap-5">
                 <Swiper
-                    className="w-full"
+                    className="w-full h-auto"
+                    autoHeight={true}
                     modules={[EffectFade]}
                     effect="fade"
                     fadeEffect={{
@@ -138,6 +144,8 @@ function Services() {
                     </SwiperSlide>
                 ))}
                 </Swiper>
+
+                <BookCall />
             </main>
             
         </section>

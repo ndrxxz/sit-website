@@ -15,8 +15,8 @@ export default function BookCall({
     return (
         <motion.button
             type="button"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 1.03 }}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 1.02 }}
             transition={{
                 type: "spring",
                 stiffness: 400,
