@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "motion/react";
 
 import Lightbox from "yet-another-react-lightbox";
@@ -14,59 +14,31 @@ import CatalogueFile from "@/assets/catalogue.png";
 import style from "./Navigation.module.css";
 
 export default function CatalogueButton() {
+
+    const slides = [{ src: CatalogueFile }];
     const [isOpen, setIsOpen] = useState(false);
 
     const handleOpen = () => {
         setIsOpen(true);
-
-        const url = new URL(window.location.href);
-        url.searchParams.set("catalogue", "open");
-
-        window.history.replaceState({}, "", url);
     };
 
     const handleClose = () => {
         setIsOpen(false);
-
-        const url = new URL(window.location.href);
-        url.searchParams.delete("catalogue");
-
-        window.history.replaceState({}, "", url);
     };
-
-    useEffect(() => {
-        const params = new URLSearchParams(window.location.search);
-        if (params.get("catalogue") === "open") {
-            setIsOpen(true);
-        }
-
-        const handleEscape = (e) => {
-            if (e.key === "Escape") handleClose();
-        };
-
-        if (isOpen) {
-            window.addEventListener("keydown", handleEscape);
-        }
-
-        return () => {
-            window.removeEventListener("keydown", handleEscape);
-        };
-    }, [isOpen]);
 
     const ToolbarBtn = ({ onClick, children, label }) => (
         <motion.button
             type="button"
             aria-label={label}
             onClick={onClick}
-            className={style.catalogueToolBarBtn}
+            className="toolBarBtn"
             whileHover={{ scale: 1.04 }}
             whileTap={{ scale: 1 }}
             transition={{
                 type: "spring",
                 stiffness: 300,
-                damping: 10,
-            }}
-        >
+                damping: 10
+            }}>
             {children}
         </motion.button>
     );
@@ -87,18 +59,27 @@ export default function CatalogueButton() {
                 <Lightbox
                     open={isOpen}
                     close={handleClose}
-                    slides={[{ src: CatalogueFile }]}
+                    slides={slides}
                     styles={{
                         container: {
                             background: "var(--lightbox-bg)",
                         },
-                        navigationPrev: { display: "none" },
-                        navigationNext: { display: "none" },
-                        button: { display: "none" },
                         toolbar: { gap: "8px" },
                     }}
                     animation={{
                         fade: 300
+                    }}
+                    controller={{
+                        closeOnEscape: false,
+                        touchAction: "none",
+                        disableSwipeNavigation: false,
+                        focus: false,
+                        aria: false
+                    }}
+                    carousel={{ finite: slides.length <= 1 }}
+                    render={{
+                        buttonPrev: slides.length <= 1 ? () => null : undefined,
+                        buttonNext: slides.length <= 1 ? () => null : undefined,
                     }}
                     toolbar={{
                         buttons: [
@@ -120,8 +101,7 @@ export default function CatalogueButton() {
                                 <IoClose size={20} />
                             </ToolbarBtn>
                         ],
-                    }}
-                />
+                    }}/>
             )}
         </>
     );

@@ -9,6 +9,10 @@ html, body {
   overflow-x: hidden;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 .lightBoxCloseBtn {
   @apply 
     flex 
@@ -24,6 +28,24 @@ html, body {
     transition 
     hover:bg-black/70;
 }
+
+.toolBarBtn 
+{
+  @apply 
+    flex 
+    h-9 
+    w-9 
+    cursor-pointer 
+    items-center 
+    justify-center 
+    rounded-full 
+    bg-black/50 
+    text-white 
+    shadow-sm 
+    transition 
+    hover:bg-black/70;
+}
+
 
 .vstack {
   @apply 

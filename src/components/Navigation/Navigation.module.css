@@ -25,7 +25,7 @@
     w-full
     items-center
     justify-center
-
+    
     rounded-full
 
     text-xs
@@ -91,21 +91,4 @@
 		transition-all
 		duration-300
 		ease-in-out;
-}
-
-.catalogueToolBarBtn 
-{
-	@apply 
-		flex 
-		h-9 
-		w-9 
-		cursor-pointer 
-		items-center 
-		justify-center 
-		rounded-full 
-		bg-black/50 
-		text-white 
-		shadow-sm 
-		transition 
-		hover:bg-black/70;
 }
