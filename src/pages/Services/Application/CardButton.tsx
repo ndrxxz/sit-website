@@ -39,7 +39,10 @@ const CardButton: React.FC<CardButtonProps> = ({
         <div
           className={`${iconBg} sm:w-14 w-12 sm:h-14 h-12 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-110`}
         >
-          <img src={icon} alt={title} className="w-8 h-8" />
+          {
+            icon ?? 
+            <img src={icon} alt={title} className="w-8 h-8" /> 
+          }
           
         </div>
 
